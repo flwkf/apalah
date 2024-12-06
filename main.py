@@ -8,6 +8,6 @@ def get_database():
     return client['coba']
 
 db = get_database()
-collection = db['collection_name']
+collection = db['cobaa']
 data = collection.find_one()
 st.write(data)
