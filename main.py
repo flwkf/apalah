@@ -1,7 +1,6 @@
 import streamlit as st
 from pymongo import MongoClient
-from pymongo.errors import ConnectionError
-
+from pymongo.errors import ServerSelectionTimeoutError
 # Ambil Mongo URI dari secrets
 def get_database():
     CONNECTION_STRING = st.secrets["MONGO_URI"]
