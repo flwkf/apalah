@@ -1,6 +1,7 @@
 import streamlit as st
 from pymongo import MongoClient
 from pymongo.errors import ServerSelectionTimeoutError
+
 # Ambil Mongo URI dari secrets
 def get_database():
     CONNECTION_STRING = st.secrets["MONGO_URI"]
@@ -15,5 +16,5 @@ try:
         st.write(data)
     else:
         st.write("Tidak ada data yang ditemukan.")
-except ConnectionError:
+except ServerSelectionTimeoutError:
     st.error("Tidak dapat terhubung ke database. Periksa URI dan koneksi internet Anda.")
